@@ -1,0 +1,24 @@
+# https://cloud.google.com/deploy/docs/config-files
+apiVersion: deploy.cloud.google.com/v1
+kind: DeliveryPipeline
+metadata:
+  name: hello-world
+serialPipeline:
+  stages:
+    - targetId: hello-world
+      profiles: []
+      strategy:
+        canary:
+          runtimeConfig:
+            cloudRun:
+              automaticTrafficControl: true
+          canaryDeployment:
+            percentages: [ 10 ]
+            verify: false
+---
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+  name: hello-world
+run:
+  location: projects/xxx/locations/asia-northeast1 # TODO: set appropriate value

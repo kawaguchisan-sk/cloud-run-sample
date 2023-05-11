@@ -1,0 +1,27 @@
+apiVersion: skaffold/v3alpha1
+kind: Config
+# Config builds
+build:
+  # Tag policy at image build time
+  # ref: https://skaffold.dev/docs/taggers/
+  tagPolicy:
+    customTemplate:
+      template: "v2"
+  # Config artifacts using ko
+  # ref: https://skaffold.dev/docs/builders/builder-types/ko/
+  artifacts:
+    - image: app
+      context: ../app/v2
+      ko:
+        fromImage: gcr.io/distroless/base:debug-nonroot
+# Manifests to be used
+# ref: https://skaffold.dev/docs/renderers/rawyaml/
+manifests:
+  rawYaml:
+    - service.yaml
+# Config deploys
+# ref: https://skaffold.dev/docs/deployers/cloudrun/
+deploy:
+  cloudrun:
+    projectid: xxx # TODO: set appropriate value
+    region: xxx # TODO: set appropriate value
