@@ -4,7 +4,7 @@
 
 [Cloud Run](https://cloud.google.com/run) を [ko](https://www.cncf.io/projects/ko/), [skaffold](https://skaffold.dev/docs/), [Artifact Registry](https://cloud.google.com/artifact-registry/docs/overview), [Cloud Deploy](https://cloud.google.com/deploy/docs/overview) を用いてビルドからデプロイまで行うサンプルです。  
 
-[こちらの記事 ※ TODO]() にて、解説を行っています。
+[こちらの記事](https://future-architect.github.io/articles/20230626a/) にて、解説を行っています。
 
 ## Directories
 
